@@ -8,7 +8,7 @@ function App() {
   const [hasFiltered, setHasFiltered] = useState(false);
 
   const handleFilter = () => {
-    const items = inputText.split('\n').map(line => line.trim());
+    const items = inputText.split('\n').map((line) => line.trim());
     const filtered = filterEmails(items);
     setResults(filtered);
     setHasFiltered(true);
@@ -46,8 +46,10 @@ admin@server.net`;
             Email Filter
           </h1>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Enter a list of strings (one per line) and filter out valid email addresses.
-            Valid emails must contain both <code className="text-cyan-400 bg-slate-800 px-2 py-1 rounded">@</code> and <code className="text-cyan-400 bg-slate-800 px-2 py-1 rounded">.</code>
+            Enter a list of strings (one per line) and filter out valid email addresses. Valid
+            emails must contain both{' '}
+            <code className="text-cyan-400 bg-slate-800 px-2 py-1 rounded">@</code> and{' '}
+            <code className="text-cyan-400 bg-slate-800 px-2 py-1 rounded">.</code>
           </p>
         </header>
 
@@ -66,7 +68,7 @@ admin@server.net`;
                 Load sample data
               </button>
             </div>
-            
+
             <textarea
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
@@ -107,15 +109,16 @@ admin@server.net`;
               )}
             </div>
 
-            <div className="h-64 bg-slate-900/80 rounded-xl p-4 border border-slate-600/50 overflow-y-auto" data-testid="results-container">
+            <div
+              className="h-64 bg-slate-900/80 rounded-xl p-4 border border-slate-600/50 overflow-y-auto"
+              data-testid="results-container"
+            >
               {!hasFiltered ? (
                 <p className="text-slate-500 text-center mt-20">
                   Click "Filter Emails" to see results
                 </p>
               ) : results.length === 0 ? (
-                <p className="text-slate-500 text-center mt-20">
-                  No valid emails found
-                </p>
+                <p className="text-slate-500 text-center mt-20">No valid emails found</p>
               ) : (
                 <ul className="space-y-2">
                   {results.map((email, index) => (
@@ -139,7 +142,9 @@ admin@server.net`;
               <div className="mt-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700/30">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <p className="text-2xl font-bold text-cyan-400">{inputText.split('\n').filter(l => l.trim()).length}</p>
+                    <p className="text-2xl font-bold text-cyan-400">
+                      {inputText.split('\n').filter((l) => l.trim()).length}
+                    </p>
                     <p className="text-xs text-slate-500 uppercase tracking-wider">Total Input</p>
                   </div>
                   <div>
